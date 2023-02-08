@@ -34,6 +34,7 @@ export function LoginPage() {
 					...r.data
 				})
 				localStorage.setItem("ruptura", rupturaInf)
+				navigate("/dashboard")
 				setIsButtonDisabled(false)
 			})
 			.catch((r)=> {
