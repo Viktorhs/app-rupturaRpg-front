@@ -21,13 +21,14 @@ export function RegisterPage() {
 	function sendForm(event){
 		event.preventDefault()
 		if(form.email && form.password && form.nickname){
-			
+			console.log(process.env.REACT_APP_API_BASE_URL)
 			setIsButtonDisabled(true)
 			const promise = signUp(form)
 			promise.then((r) => {
 				navigate("/")
 			})
 			promise.catch((r)=> {
+				console.log(r)
 				alert("erro no cadastro")
 				setIsButtonDisabled(false)
 			})

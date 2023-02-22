@@ -52,7 +52,6 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
                 third: days[1] || 0,
                 fourth: days[0] || 0
             }) 
-            console.log(informations.daysSurvived)
         }
     }, [refresh])
 

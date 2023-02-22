@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SheetInformations } from "./SheetInformations"
+import { SheetStatus } from "./SheetStatus"
 
 export function SheetFirstPage() {
     
@@ -12,6 +13,10 @@ export function SheetFirstPage() {
         race: 'humano',
         alignment: 'leal',
         daysSurvived: 100
+	})
+    const [status, setStatus] = useState({
+		força: 10,
+        agilidade: 8
 	})
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 	const navigate = useNavigate()
@@ -40,6 +45,9 @@ export function SheetFirstPage() {
                         informations={informations}
                         setInformations={setInformations}
                         isButtonDisabled={isButtonDisabled}/>
+                        <SheetStatus
+                        status={status}
+                        setStatus={setStatus}/>
                     </form>
                 </FormDiv>
             </Container>

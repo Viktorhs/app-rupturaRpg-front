@@ -13,11 +13,13 @@ function createHeaders() {
 }
 
 function signIn(body) {
+	console.log(`${BASE_URL}/user/sign-in`)
 	const promise = axios.post(`${BASE_URL}/user/sign-in`, body);
 	return promise;
 }
 
 function signUp(body) {
+	console.log(`${BASE_URL}/user/sign-up`)
 	const promise = axios.post(`${BASE_URL}/user/sign-up`, body);
 	return promise;
 }
