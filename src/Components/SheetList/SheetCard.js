@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components"
 import logo from "../../Common/Logo_PNG.svg"
+import { useNavigate } from "react-router-dom";
 
-export function SheetCard({name, daySurvived, job, race, img}) {
+export function SheetCard({id, name, daySurvived, job, race, img}) {
+    const navigate = useNavigate()
 
     function checkUrl (img) {
 
@@ -21,7 +23,7 @@ export function SheetCard({name, daySurvived, job, race, img}) {
       }
 
     return(
-        <Container>
+        <Container onClick = {()=> navigate(`/sheet/${id}`)}>
             <SheetImg>
                 <img src={checkUrl(img) ? img : logo} alt="characterImg"></img>
             </SheetImg>

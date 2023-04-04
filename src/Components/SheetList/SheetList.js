@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
 import { SheetCard } from "./SheetCard";
 
 
+
 export function SheetList() {
     const [sheets, setSheets] = useState([])
     const [refresh, setRefresh] = useState(false)
 
     function createSheet(){
-        console.log(refresh, "cliquei")
         const promise = createCharacterSheet()
         promise.then((r) => {
             console.log(r)
@@ -37,22 +37,25 @@ export function SheetList() {
 
     return (
         <Container>
-            <h1>Suas fichas</h1>
-            <div>
+            <Title>
+                <h1>Suas fichas</h1>
+                <span > 
+                    <FaPlusCircle onClick={()=> {createSheet()}}/>
+                 </span>
+            </Title>
+            
+            <div className="list">
                 <ul>
                     {sheets.map((item) => (
                         <SheetCard
-                        name = {item.characterName} 
-                        daySurvived = {item.daySurvived}
-                        job = {item.fucntion} 
-                        race = {item.race}
-                        img = {item.img}/>
+                        key = {item.id}
+                        id = {item.id}
+                        name = {item.characterInformations[0].characterName} 
+                        daySurvived = {item.characterInformations[0].daysSurvived}
+                        job = {item.characterInformations[0].function} 
+                        race = {item.characterInformations[0].race}
+                        img = {item.characterDescription[0].appearance}/>
                     ))}
-                    
-                    <CreateCard onClick={()=> {createSheet()}}>
-                        <FaPlusCircle className="plus"></FaPlusCircle>
-                        <p>Criar nova ficha</p>
-                    </CreateCard>
                 </ul>
             </div>
         </Container>
@@ -60,24 +63,15 @@ export function SheetList() {
 }
 
 const Container = styled.div`
-    padding: 20px;
-    width: 100%;
-    height: 100vh;
 
-    h1{
-        font-style: normal;
-        font-weight: 600;
-        font-size: 34px;
-        line-height: 40px;
-        color: #FFFFFF;
-        margin-bottom: 10px;
+    &&{
+        padding: 20px;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 100vh;
     }
+    
 
-    && > div{
+    && > .list{
         width: 100%;
         height: 95%;
         display: flex;
@@ -104,35 +98,35 @@ const Container = styled.div`
 		}
 `
 
-const CreateCard = styled.li`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    max-width: 420px;
-    width: 100%;
-    min-height: 450px;
-    border: 1px dotted #FFFFFF;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    cursor: pointer;
-
-    &&:active{
-        transform: translatey(5px);
+const Title = styled.div`
+    &&{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-
-    p{
-        margin: 10px;
+    h1{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 40px;
         color: #FFFFFF;
-        word-wrap: break-word;
+        text-align: center;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-right: 20px;
     }
 
-    .plus {
-    font-size: 28px;
-    color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
+    span{
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        color: #FFFFFF;
+        padding-top: 6px;
+        cursor: pointer;
+    }
 `

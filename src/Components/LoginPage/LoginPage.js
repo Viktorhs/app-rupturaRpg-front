@@ -1,9 +1,7 @@
 import styled from "styled-components"
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link  } from 'react-router-dom'
 import logo from "../../Common/Logo_PNG.svg"
-import wave from "../../Common/Rasgado.svg"
 import { signIn } from "../../services/rupturaAPI"
 
 export function LoginPage() {
@@ -34,7 +32,7 @@ export function LoginPage() {
 					...r.data
 				})
 				localStorage.setItem("ruptura", rupturaInf)
-				navigate("/dashboard")
+				navigate("/")
 				setIsButtonDisabled(false)
 			})
 			.catch((r)=> {

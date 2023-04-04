@@ -74,6 +74,7 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
                         value={informations?.characterName || ""}
                         onChange={handleForm}
                         disabled={isButtonDisabled}
+                        autocomplete="off"
                     />
                 </BoxName>
                 <Box>
@@ -85,6 +86,7 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
                             value={informations?.function || ""}
                             onChange={handleForm}
                             disabled={isButtonDisabled}
+                            autocomplete="off"
                         />
                         <label>FUNÇÃO:</label>
                     </div>
@@ -96,6 +98,7 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
                             value={informations?.race || ""}
                             onChange={handleForm}
                             disabled={isButtonDisabled}
+                            autocomplete="off"
                         />
                         <label>RAÇA:</label>
                     </div>
@@ -107,6 +110,7 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
                             value={informations?.alignment || ""}
                             onChange={handleForm}
                             disabled={isButtonDisabled}
+                            autocomplete="off"
                         />
                         <label>TENDENCIA:</label>
                     </div>
@@ -147,27 +151,28 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
 }
 
 const Container = styled.div`
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 25px;
 
     label{
         font-weight: 700;
-        font-size: 18px;
+        font-size: 14px;
         color: #FFFFFF;
     }
-    
+    @media (max-width: 1360px) {
+			flex-wrap: wrap;
+		}
 `
 
 const Accountant = styled.div`
-    margin-left: 20px;
-    padding: 10px 20px;
+    margin-left: 30px;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: blueviolet;
-    width: 200px;
     height: 100px;
     border-radius: 20px;
 
@@ -175,6 +180,7 @@ const Accountant = styled.div`
         border-radius: 20px;
         width: 25px;
         height: 90%;
+        margin: 3px;
         background-color: #FFFFFF;
 
         display: flex;
@@ -215,6 +221,7 @@ const Box = styled.div`
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     .text{
         margin-left: 10px;
@@ -231,31 +238,39 @@ const Box = styled.div`
     }
 
     .text > label{
-        margin-left: 25px;
+        margin-left: 28px;
+        font-size: 12px;
+
     }
+
+    @media (max-width: 1260px) {
+			margin-top: 10px;
+		}
 
 `
 
 const BoxText = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    
 
     label{
         margin-top: 5px;
+        font-size: 12px;
     }
 
     div{
+        width: 40%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
     }
 
-    input {
-		width: 300px;
+     && input {
+		width: 98%;
 	}
 
     input:disabled{
@@ -265,7 +280,8 @@ const BoxText = styled.div`
 `
 
 const BoxName = styled.div`
-    width: 50%;
+    max-width: 38%;
+    width: 100%;
     border: 4px solid purple;
     padding: 10px 20px;
     border-radius: 20px;
@@ -275,12 +291,11 @@ const BoxName = styled.div`
     justify-content: flex-start;
     margin-right: 10px;
 
-    input {
-		width: 500px;
-	}
-
-    input:disabled{
-        opacity: 0.5;
+    && input{
+        width: 95%;
     }
 
+    @media (max-width: 1260px) {
+			max-width: 100%;
+		}
 `

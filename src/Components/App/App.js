@@ -4,7 +4,9 @@ import { LoginPage } from '../LoginPage/LoginPage';
 import { RegisterPage } from '../LoginPage/RegisterPage';
 import { SheetList } from '../SheetList/SheetList';
 import Dashboard from '../Dashboard/dashboard';
-import { SheetFirstPage } from '../Sheet/SheetFirstPage/SheetFirstPage';
+import PrivatePage from '../privatePage/privatepage';
+import { WorkInProgress } from '../workInProgress';
+import { Sheet } from '../Sheet/Sheet';
 
 function App() {
   return (
@@ -13,27 +15,48 @@ function App() {
 			<GlobalStyle />
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<LoginPage/>} />
+					<Route path="/sign-in" element={<LoginPage/>} />
           			<Route path="/sign-up" element={<RegisterPage/>} />
 					<Route
-						path="/dashboard"
+						path="/"
 						element={
-							<Dashboard />
+							<PrivatePage>
+								<Dashboard />
+							</PrivatePage>
+							
 						}
 						>
-						<Route path="sheets" element={<SheetList/>} />
-						<Route path="dice" element={<SheetList/>} />
-						<Route path="history" element={<SheetList/>} />
+						<Route path="sheets" 
+						element={
+							<PrivatePage>
+								<SheetList/>
+							</PrivatePage>
+						} />
+						<Route path="dice" element={
+							<PrivatePage>
+								<WorkInProgress/>
+							</PrivatePage>
+						} />
+						<Route path="history" element={
+							<PrivatePage>
+								<WorkInProgress/>
+							</PrivatePage>
+						} />
 					</Route>
 					<Route
 						path="/sheet"
 						element={
-							<Dashboard />
+							<PrivatePage>
+								<Dashboard />
+							</PrivatePage>
+							
 						}
 						>
-						<Route path="firstPage" element={<SheetFirstPage />} />
-						<Route path="dice" element={<SheetList/>} />
-						<Route path="history" element={<SheetList/>} />
+						<Route path=":sheetId" element={
+							<PrivatePage>
+									<Sheet/>
+								</PrivatePage>
+							} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

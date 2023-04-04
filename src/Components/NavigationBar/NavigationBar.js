@@ -5,6 +5,7 @@ import {
   FaDiceD20,
   FaHistory,
 } from 'react-icons/fa';
+import {BiLogOut} from 'react-icons/bi'
 import NavigationButton from './NavigationButton';
 import logo from "../../Common/Logo_PNG.svg"
 
@@ -18,31 +19,39 @@ export default function NavigationBar() {
 
   return (
     <Container>
-      <Link to="/dashboard" className='logo'>
-        <img src={logo} alt="logo"></img>
+      <Link to="/" className='logo'>
+        <Logo>
+          <img src={logo} alt="logo"></img>
+        </Logo>
+        
       </Link>
       
-      <Link to="/dashboard/sheets">
-        <NavigationButton active={isActive('/dashboard/sheets')}>
+      <Link to="/sheets">
+        <NavigationButton active={isActive('/sheets')}>
           <FaBookOpen/>
           <span>Fichas</span>
         </NavigationButton>
       </Link>
 
-      <Link to="/dashboard/dice">
-        <NavigationButton active={isActive('/dashboard/dice')}>
+      <Link to="/dice">
+        <NavigationButton active={isActive('/dice')}>
           <FaDiceD20 />
           <span>Dado do dia</span>
         </NavigationButton>
       </Link>
 
-      <Link to="/dashboard/history">
-        <NavigationButton active={isActive('/dashboard/history')}>
+      <Link to="/history">
+        <NavigationButton active={isActive('/history')}>
           <FaHistory/>
           <span>Historico</span>
         </NavigationButton>
       </Link>
-
+      <Link to="/sign-in" onClick={() => localStorage.clear()} className="logout">
+        <NavigationButton>
+          <BiLogOut/>
+          <span>logout</span>
+        </NavigationButton>
+      </Link>
     </Container>
   );
 }
@@ -54,11 +63,16 @@ const Container = styled.div`
   box-shadow: 2px 0 10px 0 rgba(0,0,0,0.1);
   width: 100px;
   height: 100vh;
-  justify-content: flex-start;
+  justify-content: center;
   
   img{
-    margin-top: 30px;
-    margin-bottom: 100px;
+    position: fixed;
+    top: 30px;
+  }
+
+  .logout{
+    position: fixed;
+    bottom: 10px;
   }
 
   span{
@@ -84,5 +98,19 @@ const Container = styled.div`
     .logo{
       display: none;
     }
+    .logout{
+      display: none;
+    }
   }
 `;
+
+const Logo = styled.div`
+  background-color: transparent;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+`
