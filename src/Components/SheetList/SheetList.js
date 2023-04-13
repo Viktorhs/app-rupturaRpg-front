@@ -86,16 +86,17 @@ const Container = styled.div`
         max-height: 100%;
         margin-bottom: 10px;
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-start;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     @media (max-width: 1020px) {
-			ul{
-                align-items: center;
-                flex-direction: column;
-            }
-		}
+        ul{
+            align-items: center;
+            flex-direction: column;
+        }
+	}
 `
 
 const Title = styled.div`

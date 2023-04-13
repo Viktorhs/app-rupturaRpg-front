@@ -56,10 +56,10 @@ export function Sheet(){
         characterDefenses:[{...defenses}],
 
       }
+      console.log(sheet)
       const promise = updateSheet(sheetId, sheet)
       promise.catch((r)=>{
         alert("n deu")
-        console.log(r)
       })
       promise.then((r => {
         setIsButtonDisabled(false)

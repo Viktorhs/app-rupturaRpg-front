@@ -151,7 +151,7 @@ export function SheetInformations({informations, setInformations, isButtonDisabl
 }
 
 const Container = styled.div`
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -162,7 +162,7 @@ const Container = styled.div`
         font-size: 14px;
         color: #FFFFFF;
     }
-    @media (max-width: 1360px) {
+    @media (max-width: 1320px) {
 			flex-wrap: wrap;
 		}
 `
@@ -215,7 +215,7 @@ const Buttons = styled.div`
 `
 
 const Box = styled.div`
-    border: 4px solid purple;
+    border: 3px solid #639;
     padding: 10px 20px;
     border-radius: 20px;
 
@@ -243,7 +243,7 @@ const Box = styled.div`
 
     }
 
-    @media (max-width: 1260px) {
+    @media (max-width: 1320px) {
 			margin-top: 10px;
 		}
 
@@ -282,7 +282,7 @@ const BoxText = styled.div`
 const BoxName = styled.div`
     max-width: 38%;
     width: 100%;
-    border: 4px solid purple;
+    border: 3px solid #639;
     padding: 10px 20px;
     border-radius: 20px;
     display: flex;
@@ -295,7 +295,7 @@ const BoxName = styled.div`
         width: 95%;
     }
 
-    @media (max-width: 1260px) {
+    @media (max-width: 1320px) {
 			max-width: 100%;
 		}
 `

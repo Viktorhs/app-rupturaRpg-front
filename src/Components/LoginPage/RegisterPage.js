@@ -90,7 +90,7 @@ const Logo = styled.div`
     justify-content: center;
     width: 50vw;
     height: 100vh;
-    background-color: #452F4F;
+    background-color: #639;
     img{
         width: 80%;
     }
@@ -154,7 +154,7 @@ const FormDiv = styled.div`
 		width: 430px;
 		height: 65px;
 		border: 1px solid #FFFFFF;
-		background: #452F4F;
+		background: #639;
 		border-radius: 6px;
 		margin-bottom: 13px;
 		font-style: normal;

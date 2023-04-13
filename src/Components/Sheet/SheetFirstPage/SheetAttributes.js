@@ -22,7 +22,7 @@ function Attributes({name, value, handleForm, icon, text, isButtonDisabled}){
                 {bonus}
             </div>
             <div className="name">
-                <img src={icon}/>
+                <img src={icon} alt="icon"/>
                 <h4>{text}</h4>
             </div>
             <div className="value">
@@ -39,7 +39,6 @@ function Attributes({name, value, handleForm, icon, text, isButtonDisabled}){
 }
 
 export function SheetAttributes({setAttributes, attributes, isButtonDisabled}) {
-    console.log(attributes)
     function handleForm(event) {
         if(event.target.value.length < 3 && event.target.value <= 23){
             setAttributes({
@@ -125,10 +124,10 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 4px solid purple;
+    border: 3px solid #639;
     border-radius: 10px;
     margin: 30px 10px 0 10px;
-    width: 110px;
+    width: 100px;
     height: 140px;
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
@@ -141,7 +140,7 @@ const Container = styled.div`
         position: absolute;
         z-index: 9;
         top: -25px;
-        border: 4px solid purple;
+        border: 3px solid #639;
         border-radius: 45%;
         width: 40px;
         height: 40px;
@@ -207,9 +206,22 @@ const Container = styled.div`
 `
 
 const List = styled.div`
-    width: 40%;
+    max-width: 480px;
+    width: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+
+    @media (max-width: 1320px) {
+        min-width: 400px;
+        width: 39%;
+        justify-content: center;
+    }
+    @media (max-width: 830px) {
+        max-width:100%;
+        width: 100%;
+        justify-content: center;
+        
+	}
 `

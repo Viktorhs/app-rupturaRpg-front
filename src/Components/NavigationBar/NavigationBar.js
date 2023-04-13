@@ -59,7 +59,7 @@ export default function NavigationBar() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #452F4F;
+  background-color: #639;
   box-shadow: 2px 0 10px 0 rgba(0,0,0,0.1);
   width: 100px;
   height: 100vh;
